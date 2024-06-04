@@ -24,6 +24,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/getRumahMakan', [GeneralController::class, 'getRumahMakan'])->name('getRumahMakan');
     Route::post('/detailRumahMakan', [GeneralController::class, 'detailRumahMakan'])->name('detailRumahMakan');
     Route::post('/listCommentById', [GeneralController::class, 'listCommentById'])->name('listCommentById');
+    Route::post('/listRumahMakanById', [GeneralController::class, 'listRumahMakanById'])->name('listRumahMakanById');
     Route::post('/addCommentById', [GeneralController::class, 'addCommentById'])->name('addCommentById');
     Route::post('/rate', [GeneralController::class, 'rate'])->name('rate');
     Route::post('/add-RumahMakan', [GeneralController::class, 'addRumahMakan'])->name('addRumahMakan');

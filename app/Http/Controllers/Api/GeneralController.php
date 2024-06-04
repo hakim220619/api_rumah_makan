@@ -18,6 +18,15 @@ class GeneralController extends Controller
             'data' => $data,
         ]);
     }
+    function listRumahMakanById(Request $request)
+    {
+        $data = DB::select("SELECT w.*, (SELECT (sum(r.rate) / COUNT(r.id)) from rate r WHERE r.id_rumah_makan=w.id) as rate FROM rumah_makan w where w.id = '$request->id_rumah_makan' ORDER BY rate DESC");
+        return response()->json([
+            'success' => true,
+            'message' => 'Data Showw',
+            'data' => $data,
+        ]);
+    }
     function detailRumahMakan(Request $request)
     {
         $data = DB::select("SELECT w.*, (SELECT (sum(r.rate) / COUNT(r.id)) from rate r WHERE r.id_rumah_makan=w.id) as rate FROM rumah_makan w WHERE w.id = '$request->id_rumah_makan'");
