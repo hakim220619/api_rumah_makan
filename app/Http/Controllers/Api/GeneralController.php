@@ -94,7 +94,7 @@ class GeneralController extends Controller
             'name' => $request->name,
             'keterangan' => $request->keterangan,
             'description' => $request->description,
-            'image1' => $request->file('image')->getClientOriginalName(),
+            'image1' => 'https://apirumahmakan.sppapp.com/storage/images/wisata/' . $filename . '',
             'tag' => $request->tag,
             'wilayah' => $request->wilayah,
             'created_at' => now(),
