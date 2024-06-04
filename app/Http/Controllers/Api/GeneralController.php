@@ -118,35 +118,18 @@ class GeneralController extends Controller
     }
     function updateRumahMakan(Request $request)
     {
-        if ($request->hasFile('image4')) {
+        if ($request->hasFile('image1')) {
             $file_path = public_path() . '/storage/images/wisata/' . $request->image1;
             File::delete($file_path);
             $image = $request->file('image1');
             $filename1 = $image->getClientOriginalName();
             $image->move(public_path('storage/images/wisata/'), $filename1);
 
-            $file_path = public_path() . '/storage/images/wisata/' . $request->image2;
-            File::delete($file_path);
-            $image = $request->file('image2');
-            $filename2 = $image->getClientOriginalName();
-            $image->move(public_path('storage/images/wisata/'), $filename2);
-
-            $file_path = public_path() . '/storage/images/wisata/' . $request->image3;
-            File::delete($file_path);
-            $image = $request->file('image3');
-            $filename3 = $image->getClientOriginalName();
-            $image->move(public_path('storage/images/wisata/'), $filename3);
-
-            $file_path = public_path() . '/storage/images/wisata/' . $request->image4;
-            File::delete($file_path);
-            $image = $request->file('image4');
-            $filename4 = $image->getClientOriginalName();
-            $image->move(public_path('storage/images/wisata/'), $filename4);
             $data = [
                 'name' => $request->name,
                 'keterangan' => $request->keterangan,
                 'description' => $request->description,
-                'image1' => $filename1,
+                'image1' => 'https://apirumahmakan.sppapp.com/storage/images/wisata/' . $filename1 . '',
                 'tag' => $request->tag,
                 'wilayah' => $request->wilayah,
                 'updated_at' => now(),
