@@ -94,17 +94,17 @@ class GeneralController extends Controller
     function addRumahMakan(Request $request)
     {
 
-        $file_path = public_path() . '/storage/images/wisata/' . $request->image;
-        File::delete($file_path);
-        $image = $request->file('image');
-        $filename = $image->getClientOriginalName();
-        $image->move(public_path('storage/images/wisata/'), $filename);
+        // $file_path = public_path() . '/storage/images/wisata/' . $request->image;
+        // File::delete($file_path);
+        // $image = $request->file('image');
+        // $filename = $image->getClientOriginalName();
+        // $image->move(public_path('storage/images/wisata/'), $filename);
         $data = [
             'id_user' => request()->user()->id,
             'name' => $request->name,
             'keterangan' => $request->keterangan,
             'description' => $request->description,
-            'image1' => 'https://apirumahmakan.sppapp.com/storage/images/wisata/' . $filename . '',
+            // 'image1' => 'https://apirumahmakan.sppapp.com/storage/images/wisata/' . $filename . '',
             'tag' => $request->tag,
             'wilayah' => $request->wilayah,
             'created_at' => now(),
